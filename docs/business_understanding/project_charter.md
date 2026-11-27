@@ -45,7 +45,7 @@ Hay que tener en cuenta que estas fechas son de ejemplo, estas deben ajustarse d
 - Mariette Rodríguez Líder
 - David Rodríguez Data Engineer ML
 - Brayan Sáenz Software Engineer ML
-- Mariette Rodríguez Data sciencce
+- Mariette Rodríguez Data scientist
 
 ## Presupuesto
 
@@ -73,5 +73,5 @@ Hay que tener en cuenta que estas fechas son de ejemplo, estas deben ajustarse d
 
 ## Aprobaciones
 
-- Mariette Rodríguez Líder del proyecto
-- 19 diciembre del 2026
+Mariette Rodríguez Líder del proyecto
+
