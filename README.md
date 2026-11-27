@@ -11,9 +11,9 @@ Esta plantilla proporciona las siguientes carpetas y archivos:
 
 ---
 
-## Proyecto G4: clasificación de sonidos ambientales ESC-50 con MLOps
+## Proyecto G4: sistema de reconocimiento de sonidos para el apoyo en el cuidado de personas con necesidades especiales
 
-Ciclo de vida MLOps reproducible (Git + DVC + MLflow, metodología TDSP) sobre el dataset [ESC-50](https://github.com/karolpiczak/ESC-50). Paquete Python: `src/esc50_mlops`.
+Ciclo de vida MLOps reproducible (Git + DVC + MLflow, metodología TDSP) sobre el dataset [ESC-50](https://github.com/karolpiczak/ESC-50). Paquete Python: `src/care_sound_monitor`.
 
 ### Inicio rápido: adquisición y carga de datos (versión de datos v1)
 

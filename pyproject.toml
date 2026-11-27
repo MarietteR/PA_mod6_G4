@@ -3,12 +3,11 @@ requires = ["setuptools>=64", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "esc50_mlops"
+name = "care_sound_monitor"
 version = "0.1.0"
 authors = [{name = "Grupo 4 (G4)"}]
-description = "ESC-50 environmental sound classification: MLOps lifecycle with Git, DVC and MLflow under TDSP"
+description = "Sistema de reconocimiento de sonidos domésticos para el apoyo en el cuidado de personas con necesidades especiales (ESC-50, TDSP, Git + DVC + MLflow)"
 readme = "README.md"
-# 3.10+ for `X | None` hints; <3.13 keeps the door open for TensorFlow in the modeling phase.
 requires-python = ">=3.10,<3.13"
 dependencies = [
     "numpy",

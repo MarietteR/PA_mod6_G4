@@ -11,7 +11,7 @@ from pathlib import Path
 # --------------------------------------------------------------------------- #
 # Paths
 # --------------------------------------------------------------------------- #
-#: Repository root (``src/esc50_mlops/config.py`` -> three levels up).
+#: Repository root (``src/care_sound_monitor/config.py`` -> three levels up).
 PROJECT_ROOT: Path = Path(__file__).resolve().parents[2]
 
 #: Raw, immutable data (DVC-tracked, never committed to Git).

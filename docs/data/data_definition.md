@@ -15,16 +15,16 @@
 | Licencia | CC BY-NC 3.0 (uso no comercial); el subconjunto ESC-10 es CC BY. Atribuciones por clip en `LICENSE`. |
 | Cita | Piczak, K. J. (2015). *ESC: Dataset for Environmental Sound Classification*. ACM Multimedia, 1015–1018. DOI `10.1145/2733373.2806390` |
 
-El commit, la URL y el hash están centralizados en `src/esc50_mlops/config.py` (`SOURCE_COMMIT`, `SOURCE_URL`, `SOURCE_SHA256`).
+El commit, la URL y el hash están centralizados en `src/care_sound_monitor/config.py` (`SOURCE_COMMIT`, `SOURCE_URL`, `SOURCE_SHA256`).
 
 ## Especificación de los scripts para la carga de datos
 
 | Archivo | Responsabilidad |
 | --- | --- |
 | `scripts/data_acquisition/main.py` | Punto de entrada (CLI). Descarga, extrae, carga, valida y escribe el reporte `reports/data_acquisition.json`. Devuelve código de salida `1` si falla alguna validación de severidad *error*. |
-| `src/esc50_mlops/config.py` | Constantes: rutas, origen fijado y el "contrato" del dataset (2.000 clips, 50 clases × 40, 5 folds × 400, 44,1 kHz, mono, 5 s). |
-| `src/esc50_mlops/database/acquisition.py` | `download_archive` (descarga en streaming a un archivo `.part` y lo renombra solo si el SHA-256 coincide), `extract_archive` (extracción protegida contra *zip-slip* y normalización de la carpeta a `ESC-50-master`), `acquire` (orquesta ambos pasos; es idempotente). |
-| `src/esc50_mlops/database/loading.py` | `load_metadata` (CSV → `DataFrame` tipado con ruta absoluta de cada WAV), `load_clip` (WAV → `float32` en [-1, 1]), `iter_clips`, `fold_split` (partición por folds predefinidos), `class_names`, `summarize` y `validate_dataset` (15 verificaciones de integridad). |
+| `src/care_sound_monitor/config.py` | Constantes: rutas, origen fijado y el "contrato" del dataset (2.000 clips, 50 clases × 40, 5 folds × 400, 44,1 kHz, mono, 5 s). |
+| `src/care_sound_monitor/database/acquisition.py` | `download_archive` (descarga en streaming a un archivo `.part` y lo renombra solo si el SHA-256 coincide), `extract_archive` (extracción protegida contra *zip-slip* y normalización de la carpeta a `ESC-50-master`), `acquire` (orquesta ambos pasos; es idempotente). |
+| `src/care_sound_monitor/database/loading.py` | `load_metadata` (CSV → `DataFrame` tipado con ruta absoluta de cada WAV), `load_clip` (WAV → `float32` en [-1, 1]), `iter_clips`, `fold_split` (partición por folds predefinidos), `class_names`, `summarize` y `validate_dataset` (15 verificaciones de integridad). |
 | `tests/test_data_acquisition.py` | 13 pruebas unitarias sobre un mini-dataset sintético (no requieren descarga; aptas para CI). |
 
 **Ejecución** (desde la raíz del repositorio):
@@ -40,7 +40,7 @@ pytest -q                                         # pruebas unitarias
 **Uso desde código** (fases siguientes):
 
 ```python
-from esc50_mlops.database import load_metadata, fold_split, load_clip
+from care_sound_monitor.database import load_metadata, fold_split, load_clip
 
 df = load_metadata()                      # 2000 filas, una por clip
 splits = fold_split(df)                   # train = folds 1-3, val = 4, test = 5

@@ -16,7 +16,7 @@ import numpy as np
 import pandas as pd
 import soundfile as sf
 
-from esc50_mlops import config
+from care_sound_monitor import config
 
 
 # --------------------------------------------------------------------------- #

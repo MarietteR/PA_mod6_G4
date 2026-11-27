@@ -22,8 +22,8 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-from esc50_mlops import config
-from esc50_mlops.database import acquire, load_metadata, summarize, validate_dataset
+from care_sound_monitor import config
+from care_sound_monitor.database import acquire, load_metadata, summarize, validate_dataset
 
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:

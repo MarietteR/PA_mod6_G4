@@ -15,7 +15,7 @@ import urllib.request
 import zipfile
 from pathlib import Path
 
-from esc50_mlops import config
+from care_sound_monitor import config
 
 log = logging.getLogger(__name__)
 

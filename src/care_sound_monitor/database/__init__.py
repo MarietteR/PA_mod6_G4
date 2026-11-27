@@ -1,7 +1,7 @@
 """Data acquisition and loading for ESC-50 (TDSP stage: data acquisition and understanding)."""
 
-from esc50_mlops.database.acquisition import acquire, download_archive, extract_archive, sha256sum
-from esc50_mlops.database.loading import (
+from care_sound_monitor.database.acquisition import acquire, download_archive, extract_archive, sha256sum
+from care_sound_monitor.database.loading import (
     ValidationReport,
     class_names,
     fold_split,
