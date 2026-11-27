@@ -2,23 +2,58 @@
 
 ## Nombre del Proyecto
 
-[Nombre del proyecto aquí]
+Sistema de reconocimiento de sonidos domésticos para el apoyo en el cuidado de personas con necesidades especiales.
 
 ## Objetivo del Proyecto
 
-[Descripción breve del objetivo del proyecto y por qué es importante]
+[Muchas personas con necesidades especiales (por ejemplo, adultos mayores, personas con discapacidad o con condiciones de salud que requieren acompañamiento) viven solas o cuentan con acompañamiento parcial, lo que dificulta la supervisión continua de su entorno y la identificación oportuna de situaciones que puedan comprometer su bienestar, ya que sus cuidadores no pueden estar presentes durante todo el tiempo. Un sistema que escuche el entorno puede detectar eventos acústicos relevantes dentro de una vivienda y generar notificaciones oportunas para los cuidadores. Entre los posibles eventos de interés se encuentran la caída de objetos, la ruptura de elementos, episodios de tos y periodos inusuales de inactividad acústica. Todo esto sin que el cuidador tenga que revisar constantemente.
+
+**Por qué es importante:** un sistema que genere notificaciones excesivas puede perder credibilidad y provocar que los cuidadores ignoren sus advertencias, mientras que una alerta omitida podría retrasar la atención ante una situación de riesgo. Por eso el proyecto no se limita a clasificar sonidos: busca decidir cuáles importan y cuándo avisar.]
 
 ## Alcance del Proyecto
+**Población objetivo:** personas con necesidades especiales que requieren acompañamiento y viven solas o con apoyo parcial, como adultos mayores, personas con discapacidad o con condiciones de salud que necesitan supervisión. El diseño es general: los sonidos del hogar y las reglas de alerta aplican a todos estos perfiles, aunque cada uno podría requerir ajustar las clases prioritarias y los umbrales.
 
-### Incluye:
+**Aclaración de alcance importante:** un clasificador de sonidos no sabe quién produjo el sonido. El proyecto asume un escenario controlado de una sola persona en el espacio monitoreado (dispositivo en su vivienda o habitación) y no intenta atribuir un sonido a un individuo entre varios.
 
-- [Descripción de los datos disponibles]
-- [Descripción de los resultados esperados]
-- [Criterios de éxito del proyecto]
+ **Descripción de los datos disponibles:**
+  - Dataset **ESC-50** (Piczak, 2015): 2.000 clips de audio WAV de 5 segundos, 44,1 kHz y mono, con 50 clases de 40 clips cada una y 5 folds prearmados para validación cruzada. Licencia CC BY-NC 3.0 (uso no comercial).
+  - Las 50 clases se agrupan según su uso en el sistema (archivo `data/external/class_groups.csv`). Es una agrupación inicial que se revisará cuando se profundice en perfiles específicos:
+
+    | Grupo | Clases | Uso |
+    |---|---|---|
+    | Urgente (1) | `glass_breaking` | Notificación inmediata |
+    | Salud (4) | `coughing`, `sneezing`, `breathing`, `snoring` | Conteo por hora y tendencia |
+    | Actividad (16) | Pasos, puertas, agua, cocina, higiene, electrodomésticos, etc. | Señales de rutina; su ausencia prolongada puede alertar |
+    | Ambiente (29) | Animales, clima, tráfico, etc. | Se descartan |
+
+  - Hallazgos preliminares de la auditoría de calidad (`reports/`):
+    - Todos los clips cumplen el formato esperado, pero 55 presentan saturación y 169 tienen menos de 1 s de audio activo.
+    - Los eventos breves están rellenados con silencio digital hasta completar 5 s (mediana de relleno: ~0 % en ambiente y 65 % en urgente).
+    - Con solo nivel, relleno y ancho de banda (sin el contenido del sonido), un Random Forest acierta 26 % frente a 2 % del azar. Esto indica riesgo de que un modelo aprenda artefactos y no el sonido.
+    - 4 grabaciones originales aparecen en más de un fold, y el grupo urgente tiene una sola clase.
+  - Audio propio (opcional) para probar la generalización fuera de ESC-50.
+
+- **Descripción de los resultados esperados:**
+  - Clasificación de las 50 clases de ESC-50 agrupadas en 4 grupos de uso.
+  - Panel de visualización con eventos, tendencias y alertas simuladas (entregable principal).
+  - Evaluación con folds oficiales y con un día sintético de audio continuo.
+  - Pruebas con audio propio si es posible.
+  - Opcional: servicio web que procese el audio y devuelva el nombre del sonido detectado y su estado de alerta.
+
+- **Criterios de éxito del proyecto:**
+  - Modelo: F1 macro y por clase superiores al baseline MFCC + Random Forest reportado para ESC-50 (44,3 %). Meta numérica: [COMPLETAR].
+  - Alerta urgente: recall de `glass_breaking` y falsas alarmas por hora en el día sintético. Metas: [COMPLETAR].
+  - Errores de alerta: revisar si los errores de clasificación generan alertas indebidas u omiten alertas esperadas.
+  - Robustez: reportar y analizar la caída de desempeño sin relleno, con ruido y con audio propio.
+  - Prototipo: el panel muestra eventos, tendencias y alertas de un día simulado.
 
 ### Excluye:
 
-- [Descripción de lo que no está incluido en el proyecto]
+- Identificar quién produce el sonido.
+- Detección de caídas de personas, voz o gritos (no están en ESC-50).
+- Alarma de humo (la clase `clock_alarm` es un despertador).
+- Uso comercial (licencia CC BY-NC).
+- Dispositivo médico o diagnóstico: el sistema es una herramienta de apoyo, no un sustituto del cuidador.
 
 ## Metodología
 
