@@ -2,12 +2,12 @@
 
 ## Nombre del Proyecto
 
-[Sistema de reconocimiento de sonidos domésticos para el apoyo en el cuidado de adultos mayores.]
+Sistema de reconocimiento de sonidos domésticos para el apoyo en el cuidado de adultos mayores.
 
 ## Objetivo del Proyecto
 
-[En la actualidad está creciendo el número de personas mayores que viven solas o cuentan con acompañamiento parcial, lo que dificulta la supervisión continua de su entorno y la identificación oportuna de situaciones que puedan comprometer su bienestar, ya que sus cuidadores no pueden estar presentes durante todo el tiempo. Un sistema que escuche el entorno puede detectar eventos acústicos relevantes dentro de una vivienda y generar notificaciones oportunas para los cuidadores. Entre los posibles eventos de interés se encuentran la caída de objetos, la ruptura de elementos, episodios de tos y periodos inusuales de inactividad acústica. Todo esto sin que el cuidador tenga que revisar constantemente.
-Un sistema que genere notificaciones excesivas puede perder credibilidad y provocar que los cuidadores ignoren sus advertencias, mientras que una alerta omitida podría retrasar la atención ante una situación de riesgo. Por eso el proyecto no se limita a clasificar sonidos: busca decidir cuáles importan y cuándo avisar.]
+En la actualidad está creciendo el número de personas mayores que viven solas o cuentan con acompañamiento parcial, lo que dificulta la supervisión continua de su entorno y la identificación oportuna de situaciones que puedan comprometer su bienestar, ya que sus cuidadores no pueden estar presentes durante todo el tiempo. Un sistema que escuche el entorno puede detectar eventos acústicos relevantes dentro de una vivienda y generar notificaciones oportunas para los cuidadores. Entre los posibles eventos de interés se encuentran la caída de objetos, la ruptura de elementos, episodios de tos y periodos inusuales de inactividad acústica. Todo esto sin que el cuidador tenga que revisar constantemente.
+Un sistema que genere notificaciones excesivas puede perder credibilidad y provocar que los cuidadores ignoren sus advertencias, mientras que una alerta omitida podría retrasar la atención ante una situación de riesgo. Por eso el proyecto no se limita a clasificar sonidos: busca decidir cuáles importan y cuándo avisar.
 
 ## Alcance del Proyecto
 
