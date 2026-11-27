@@ -1,16 +1,31 @@
 [build-system]
-requires = ["setuptools", "setuptools-scm"]
+requires = ["setuptools>=64", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "nombre_paquete"
+name = "esc50_mlops"
 version = "0.1.0"
-authors = [{name = "autor1", email = "correo@correo.com"}]
-description = "Descripción del proyecto"
-requires-python = ">3.8"
+authors = [{name = "Grupo 4 (G4)"}]
+description = "ESC-50 environmental sound classification: MLOps lifecycle with Git, DVC and MLflow under TDSP"
+readme = "README.md"
+# 3.10+ for `X | None` hints; <3.13 keeps the door open for TensorFlow in the modeling phase.
+requires-python = ">=3.10,<3.13"
 dependencies = [
-    "numpy"
+    "numpy",
+    "pandas",
+    "soundfile",
 ]
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff"]
+dvc = ["dvc"]
 
 [tool.setuptools.packages.find]
 where = ["src/"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 110
+src = ["src"]
