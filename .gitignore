@@ -184,3 +184,19 @@ Temporary Items
 # DEsign and Draft Docs
 # =====================================================================
 DesignDocs/
+
+# Data and models are versioned with DVC, never with Git.
+# DVC writes its own .gitignore next to each tracked output (e.g. data/raw/.gitignore);
+# the downloaded archive cache is never versioned.
+/data/external/
+# Python / tooling
+.venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.DS_Store
+# MLflow local backend
+mlruns.db
+mlartifacts/
+.dvc/config.local

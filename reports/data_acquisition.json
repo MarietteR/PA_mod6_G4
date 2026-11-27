@@ -1,0 +1,188 @@
+{
+  "generated_at": "2026-11-27T04:34:41+00:00",
+  "source": {
+    "repo": "https://github.com/karolpiczak/ESC-50",
+    "commit": "33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6",
+    "url": "https://codeload.github.com/karolpiczak/ESC-50/zip/33c8ce9eb2cf0b1c2f8bcf322eb349b6be34dbb6",
+    "sha256": "661183a6f53ef04f12c9bd618fed0ddc1713280d6c94a5a5431e844ba6f6a21f"
+  },
+  "dataset_dir": "data/raw/ESC-50-master",
+  "summary": {
+    "n_clips": 2000,
+    "n_classes": 50,
+    "n_source_files": 1524,
+    "clips_per_fold": {
+      "1": 400,
+      "2": 400,
+      "3": 400,
+      "4": 400,
+      "5": 400
+    },
+    "clips_per_major_category": {
+      "Animals": 400,
+      "Natural soundscapes & water sounds": 400,
+      "Human, non-speech sounds": 400,
+      "Interior/domestic sounds": 400,
+      "Exterior/urban noises": 400
+    },
+    "esc10_clips": 400,
+    "takes": {
+      "A": 1527,
+      "B": 317,
+      "C": 88,
+      "D": 38,
+      "E": 15,
+      "F": 7,
+      "G": 5,
+      "H": 3
+    },
+    "class_names": [
+      "dog",
+      "rooster",
+      "pig",
+      "cow",
+      "frog",
+      "cat",
+      "hen",
+      "insects",
+      "sheep",
+      "crow",
+      "rain",
+      "sea_waves",
+      "crackling_fire",
+      "crickets",
+      "chirping_birds",
+      "water_drops",
+      "wind",
+      "pouring_water",
+      "toilet_flush",
+      "thunderstorm",
+      "crying_baby",
+      "sneezing",
+      "clapping",
+      "breathing",
+      "coughing",
+      "footsteps",
+      "laughing",
+      "brushing_teeth",
+      "snoring",
+      "drinking_sipping",
+      "door_wood_knock",
+      "mouse_click",
+      "keyboard_typing",
+      "door_wood_creaks",
+      "can_opening",
+      "washing_machine",
+      "vacuum_cleaner",
+      "clock_alarm",
+      "clock_tick",
+      "glass_breaking",
+      "helicopter",
+      "chainsaw",
+      "siren",
+      "car_horn",
+      "engine",
+      "train",
+      "church_bells",
+      "airplane",
+      "fireworks",
+      "hand_saw"
+    ]
+  },
+  "validation": {
+    "passed": true,
+    "n_warnings": 1,
+    "checks": [
+      {
+        "name": "row count",
+        "passed": true,
+        "detail": "2000 rows (expected 2000)",
+        "severity": "error"
+      },
+      {
+        "name": "no missing values",
+        "passed": true,
+        "detail": "",
+        "severity": "error"
+      },
+      {
+        "name": "unique filenames",
+        "passed": true,
+        "detail": "",
+        "severity": "error"
+      },
+      {
+        "name": "class count",
+        "passed": true,
+        "detail": "50 classes",
+        "severity": "error"
+      },
+      {
+        "name": "balanced classes",
+        "passed": true,
+        "detail": "clips per class: min 40, max 40",
+        "severity": "error"
+      },
+      {
+        "name": "target <-> category is 1:1",
+        "passed": true,
+        "detail": "",
+        "severity": "error"
+      },
+      {
+        "name": "fold sizes",
+        "passed": true,
+        "detail": "{1: 400, 2: 400, 3: 400, 4: 400, 5: 400}",
+        "severity": "error"
+      },
+      {
+        "name": "filename matches fold/target/take",
+        "passed": true,
+        "detail": "0 mismatches",
+        "severity": "error"
+      },
+      {
+        "name": "each src_file in a single fold within its class",
+        "passed": true,
+        "detail": "0 (src_file, class) pairs span several folds",
+        "severity": "error"
+      },
+      {
+        "name": "each src_file in a single fold across classes",
+        "passed": false,
+        "detail": "4 source files reused by two classes in different folds: ['131943', '134049', '209698', '234879']",
+        "severity": "warning"
+      },
+      {
+        "name": "ESC-10 subset is 10 whole classes",
+        "passed": true,
+        "detail": "10 classes, 400 clips",
+        "severity": "error"
+      },
+      {
+        "name": "all audio files exist",
+        "passed": true,
+        "detail": "0 missing",
+        "severity": "error"
+      },
+      {
+        "name": "no unlisted audio files",
+        "passed": true,
+        "detail": "0 extra",
+        "severity": "error"
+      },
+      {
+        "name": "audio format 44100 Hz / mono / 5 s",
+        "passed": true,
+        "detail": "0 non-conforming",
+        "severity": "error"
+      },
+      {
+        "name": "audio content (decodable, not silent, |DC offset| < 0.2)",
+        "passed": true,
+        "detail": "0 suspicious",
+        "severity": "error"
+      }
+    ]
+  }
+}
